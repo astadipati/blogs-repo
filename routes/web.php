@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/baca', function () {
+    return view('welcome');
+});
+
 Route::get('/', function () {
     return view('blog.index');
 });
