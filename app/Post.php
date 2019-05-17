@@ -17,4 +17,22 @@ class Post extends Model
         }
         return $imgUrl;
     }
+
+    // karena post milik dari 1 user
+    public function author()
+    {
+        // karena masih 1 namespace tidak perlu App\User
+        return $this->belongsTo(User::class);
+    }
+
+    public function getDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
+    public function scopeLatestFirst()
+    {
+        return $this->orderBy('created_at','desc');
+    }
+
 }
