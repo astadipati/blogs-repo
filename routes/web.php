@@ -15,9 +15,12 @@ Route::get('/baca', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('blog.index');
-});
+Route::get('/', 
+// array asosiatif memintahkan bisnis logic ke kontroller
+    [
+    'uses' => 'BlogController@index'
+    ]
+);
 
 Route::get('/blog/show', function () {
     return view('blog.show');
