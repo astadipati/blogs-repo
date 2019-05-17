@@ -30,6 +30,13 @@ class BlogController extends Controller
         // dd(\DB::getQueryLog());
     }   
 
+    public function show($id)
+    {
+        // die("show");
+        $post = Post::findOrFail($id);
+        return view("blog.show", compact('post'));
+    }
+
     // cara debugging
     // public function index(){
     //     // die('Blog E');
