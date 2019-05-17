@@ -19,8 +19,15 @@ class BlogController extends Controller
         // ntuk pagination get ganti paginate
         // $posts = Post::with('author')->LatestFirst()->paginate(3);
         // jika ingin tampilan paginate jadul 
-        $posts = Post::with('author')->LatestFirst()->simplePaginate($this->limit);
+        // $posts = Post::with('author')->LatestFirst()->simplePaginate($this->limit);
+        // ganti yang publish
+        // \DB::enableQueryLog();
+        $posts = Post::with('author')
+                        ->LatestFirst()
+                        ->published()
+                        ->paginate($this->limit);
         return view ("blog.index", compact('posts'));
+        // dd(\DB::getQueryLog());
     }   
 
     // cara debugging

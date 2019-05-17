@@ -18,7 +18,8 @@ Route::get('/baca', function () {
 Route::get('/', 
 // array asosiatif memintahkan bisnis logic ke kontroller
     [
-    'uses' => 'BlogController@index'
+    'uses' => 'BlogController@index',
+    'as' => 'blog'
     ]
 );
 
